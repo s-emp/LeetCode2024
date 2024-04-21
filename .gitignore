@@ -88,3 +88,5 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+/LeetCode2024/.swiftpm/xcode/package.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+.DS_Store
