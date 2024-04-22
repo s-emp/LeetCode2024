@@ -11,6 +11,7 @@ final class IsSubsequenceTests: XCTestCase {
     func testIsSubsequence() {
         XCTAssertEqual(solution.isSubsequence("abc", "ahbgdc"), true)
         XCTAssertEqual(solution.isSubsequence("axc", "ahbgdc"), false)
+        XCTAssertEqual(solution.isSubsequence("", "ahbgdc"), true)
     }
 }
 
