@@ -10,3 +10,17 @@ public class ListNode: Equatable {
     }
 }
 
+extension ListNode: CustomStringConvertible {
+    public var description: String {
+        var node = self
+        var description = "[\(node.val)"
+        
+        while let next = node.next {
+            description += ", \(next.val)"
+            node = next
+        }
+        
+        description += "]"
+        return description
+    }
+}
