@@ -15,18 +15,13 @@ final class PhoneNumber {
         guard digits.count > 1 else {
             return numbers[digits.first ?? "1"]?.map { String($0) } ?? []
         }
-        var numbers: [[Character]] = []
-        var currentIndex: [Int] = []
-        for digit in digits {
-            guard let characters = self.numbers[digit] else { continue }
-            numbers.append(characters)
-            currentIndex.append(0)
-        }
+        let numbers: [[Character]] = digits.compactMap { self.numbers[$0] }
+        var currentIndex: [Int] = Array(repeating: 0, count: digits.count)
         var result: [String] = []
         let numbersRange = 0..<numbers.count
+        
         while currentIndex[0] < numbers[0].count {
             var currentString = ""
-            
             for index in numbersRange {
                 currentString.append(numbers[index][currentIndex[index]])
             }
@@ -44,8 +39,6 @@ final class PhoneNumber {
             }
             result.append(currentString)
         }
-        
-        
         return result
     }
 }
