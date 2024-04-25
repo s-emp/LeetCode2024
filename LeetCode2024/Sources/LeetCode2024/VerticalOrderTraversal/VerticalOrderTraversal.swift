@@ -2,32 +2,30 @@
 
 final class VerticalOrderTraversal {
     func verticalOrder(_ root: TreeNode?) -> [[Int]] {
-        guard let root else { return [[]] }
-        let twoList = TwoList(val: [])
-        parse(node: root, list: twoList)
-        var columns: [Int: [Int]] = [:]
-        columns.keys.min()
-        return twoList.getArray()
-        
-    }
-    
-    fileprivate func parse(node: TreeNode, list: TwoList) {
-        list.val.append(node.val)
-        if let leftNode = node.left {
-            if let leftList = list.left {
-                parse(node: leftNode, list: leftList)
-            } else {
-                list.left = .init(val: [], left: nil, right: list)
-                parse(node: leftNode, list: list.left!)
+        guard let root else { return [] }
+        var columnTable = [0: [root.val]]
+        var queue: [(value: TreeNode, column: Int)] = [(root, 0)]
+        var minValue = 0, maxValue = 0
+        while !queue.isEmpty {
+            let current = queue.removeFirst()
+            let column = current.column
+            if let left = current.value.left {
+                queue.append((left, column - 1))
+                minValue = min(minValue, column - 1)
+                columnTable[column - 1, default: []].append(left.val)
+            }
+            if let right = current.value.right {
+                queue.append((right, column + 1))
+                maxValue = max(maxValue, column + 1)
+                columnTable[column + 1, default: []].append(right.val)
             }
         }
-        if let rightNode = node.right {
-            if let rightList = list.right {
-                parse(node: rightNode, list: rightList)
-            } else {
-                list.right = .init(val: [], left: list, right: nil)
-                parse(node: rightNode, list: list.right!)
-            }
+        var result = Array(repeating: [Int](), count: maxValue - minValue + 1)
+        let offset = minValue * -1
+        for item in columnTable {
+            let index = item.key + offset
+            result[index] = item.value
         }
+        return result
     }
 }

@@ -39,6 +39,7 @@ final class VerticalOrderTraversalTests: XCTestCase {
             ),
             [[4],[9,5],[3,0,1],[8,2],[7]]
         )
+        XCTAssertEqual(solution.verticalOrder(nil), [])
     }
 }
 
