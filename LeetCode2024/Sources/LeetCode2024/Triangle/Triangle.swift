@@ -13,12 +13,11 @@ final class Triangle {
         var counter = numRows - 2
         while counter > 0 {
             let lastRow = result.last!
-            var newRow = [1]
+            var newRow = Array(repeating: 1, count: lastRow.count + 1)
             for (index, value) in lastRow.enumerated() where index < lastRow.count - 1 {
                 let sum = value + lastRow[index + 1]
-                newRow.append(sum)
+                newRow[index + 1] = sum
             }
-            newRow.append(1)
             result.append(newRow)
             counter -= 1
         }
