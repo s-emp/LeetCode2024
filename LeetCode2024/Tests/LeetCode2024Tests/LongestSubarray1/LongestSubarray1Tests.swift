@@ -12,6 +12,7 @@ final class LongestSubarray1Tests: XCTestCase {
         XCTAssertEqual(solution.longestSubarray([1,1,0,1]), 3)
         XCTAssertEqual(solution.longestSubarray([0,1,1,1,0,1,1,0,1]), 5)
         XCTAssertEqual(solution.longestSubarray([1,1,1]), 2)
+        XCTAssertEqual(solution.longestSubarray([0,0,1,1]), 2)
     }
 }
 
