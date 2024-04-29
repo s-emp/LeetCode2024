@@ -1,18 +1,22 @@
 final class LongestSubstring {
     func lengthOfLongestSubstring(_ s: String) -> Int {
-        var startIterator = s.makeIterator(), endIterator = s.makeIterator()
-        var current = Set<Character>()
-        var result = 0
-        while let next = startIterator.next() {
-            let (isSuccess, _) = current.insert(next)
-            guard !isSuccess else { continue }
-            result = max(result, current.count)
-            while !current.isEmpty {
-                let endNext = endIterator.next()!
-                current.remove(endNext)
-                if current.insert(next).inserted { break }
+        guard !s.isEmpty else { return 0 }
+        var dict: [Character: Int] = [:]
+        var lowerIndex = 0, currentIndex = 0, maxLenght = 0
+        var iterator = s.makeIterator()
+        while let next = iterator.next() {
+            guard let chapterIndex = dict[next], lowerIndex <= chapterIndex else {
+                dict[next] = currentIndex
+                currentIndex += 1
+                continue
             }
+            let currentLength = currentIndex - lowerIndex
+            maxLenght = max(currentLength, maxLenght)
+            dict[next] = currentIndex
+            lowerIndex = chapterIndex + 1
+            currentIndex += 1
         }
-        return max(result, current.count)
+        let currentLength = currentIndex - lowerIndex
+        return max(currentLength, maxLenght)
     }
 }
