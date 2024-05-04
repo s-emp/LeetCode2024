@@ -11,7 +11,9 @@ final class FibonacciNumberTests: XCTestCase {
     func testFibonacciNumber() {
         XCTAssertEqual(solution.fib(0), 0)
         XCTAssertEqual(solution.fib(1), 1)
-        XCTAssertEqual(solution.fib(4), 5)
+        XCTAssertEqual(solution.fib(2), 1)
+        XCTAssertEqual(solution.fib(4), 3)
+        XCTAssertEqual(solution.fib(5), 5)
     }
 }
 
