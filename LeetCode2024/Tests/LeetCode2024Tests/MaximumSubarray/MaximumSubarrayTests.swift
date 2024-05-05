@@ -15,5 +15,6 @@ final class MaximumSubarrayTests: XCTestCase {
         XCTAssertEqual(solution.maxSubArray([-2]), -2)
         XCTAssertEqual(solution.maxSubArray([-2, 2]), 2)
         XCTAssertEqual(solution.maxSubArray([4,-1,2,1]), 6)
+        XCTAssertEqual(solution.maxSubArray([1,2]), 3)
     }
 }
