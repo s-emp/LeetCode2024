@@ -11,9 +11,11 @@ final class RemoveDuplicatesSortedArray2Tests: XCTestCase {
     func testRemoveDuplicates() {
         var nums = [1,1,1,2,2,3]
         XCTAssertEqual(solution.removeDuplicates(&nums), 5)
+        XCTAssertEqual(nums.prefix(5), [1,1,2,2,3])
         
         nums = [0,0,1,1,1,1,2,3,3]
         XCTAssertEqual(solution.removeDuplicates(&nums), 7)
+        XCTAssertEqual(nums.prefix(7), [0,0,1,1,2,3,3])
     }
 }
 
