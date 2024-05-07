@@ -6,14 +6,8 @@ final class MergeSortedArray {
         var j = 0
         var result = Array(repeating: 0, count: n + m)
         for index in 0..<m + n {
-            var num1: Int? = nil
-            var num2: Int? = nil
-            if i < m {
-                num1 = nums1[i]
-            }
-            if j < n {
-                num2 = nums2[j]
-            }
+            let num1 = i < m ? nums1[i] : nil
+            let num2 = j < n ? nums2[j] : nil
             if let num1 {
                 if let num2 {
                     if num1 <= num2 {
