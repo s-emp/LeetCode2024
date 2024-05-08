@@ -2,6 +2,11 @@
 
 final class RotateArray {
     func rotate(_ nums: inout [Int], _ k: Int) {
-        // TODO: - ...
+        let rotateCount = k % nums.count 
+        guard rotateCount > 0 else { return }
+        nums.insert(contentsOf: nums.suffix(rotateCount), at: 0)
+        for _ in 0..<rotateCount {
+            nums.removeLast()
+        }
     }
 }
