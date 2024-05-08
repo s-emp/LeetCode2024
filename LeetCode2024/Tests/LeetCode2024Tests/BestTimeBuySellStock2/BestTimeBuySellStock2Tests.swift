@@ -14,6 +14,7 @@ final class BestTimeBuySellStock2Tests: XCTestCase {
         XCTAssertEqual(solution.maxProfit([1,2,3,4]), 3)
         XCTAssertEqual(solution.maxProfit([0]), 0)
         XCTAssertEqual(solution.maxProfit([4,3,2,1]), 0)
+        XCTAssertEqual(solution.maxProfit([3,10,8,9]), 8)
     }
 }
 
