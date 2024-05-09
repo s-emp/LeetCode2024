@@ -2,15 +2,14 @@
 
 final class JumpGame {
     func canJump(_ nums: [Int]) -> Bool {
-        guard nums.count > 1 else { return true }
-        var nextSteps = Set<Int>([0])
         let goal = nums.count - 1
-        for (index, num) in nums.enumerated() where nextSteps.contains(index) {
-            for i in 0+index...num+index {
-                nextSteps.insert(i)
-            }
-            if nextSteps.contains(goal) { return true }
+        guard goal > 0 else { return true }
+        var end = 0
+        for (index, num) in nums.enumerated() {
+            end = max(end, index+num)
+            if end <= index { return false }
+            if end >= goal { return true }
         }
-        return nextSteps.contains(goal)
+        return false
     }
 }
