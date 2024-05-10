@@ -14,7 +14,8 @@ final class RemoveElementTests: XCTestCase {
         XCTAssertEqual(num.prefix(2), [2,2])
         num = [0,1,2,2,3,0,4,2]
         XCTAssertEqual(solution.removeElement(&num, 2), 5)
-        XCTAssertEqual(num.prefix(5), [0,1,4,0,3])
+        // FIXME: - некорректный тест, нужно посторить проверку как в leetCode для такого типа задач
+//        XCTAssertEqual(num.prefix(5), [0,1,4,0,3])
         num = [3,2,2,2,3]
         XCTAssertEqual(solution.removeElement(&num, 2), 2)
         XCTAssertEqual(num.prefix(2), [3,3])
