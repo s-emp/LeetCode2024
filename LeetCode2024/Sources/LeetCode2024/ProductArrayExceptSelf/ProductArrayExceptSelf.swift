@@ -2,23 +2,20 @@
 
 final class ProductArrayExceptSelf {
     func productExceptSelf(_ nums: [Int]) -> [Int] {
-        var result = Array(repeating: 0, count: nums.count)
-        let allResult = nums.reduce(1) { last, num in
-            return last * num
-        }
-        var zeroCount = 0
+        guard nums.count > 1 else { return nums }
+        var result = Array(repeating: 1, count: nums.count)
+        // prefix
         for i in 0..<nums.count {
-            if zeroCount == 2 { return Array(repeating: 0, count: nums.count) }
-            let num = nums[i]
-            if num == 0 {
-                zeroCount += 1
-                var currentResult = 1
-                for j in 0..<nums.count where i != j {
-                    currentResult *= nums[j]
-                }
-                result[i] = currentResult
-            } else {
-                result[i] = allResult / num
+            if i > 0 {
+                result[i] = result[i-1] * nums[i-1]
+            }
+        }
+        // sufix
+        var lastSuffix = 1
+        for i in (0..<nums.count).reversed() {
+            if i < nums.count - 1 {
+                result[i] *= nums[i + 1] * lastSuffix
+                lastSuffix *= nums[i + 1]
             }
         }
         return result
