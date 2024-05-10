@@ -18,6 +18,7 @@ final class HIndexTests: XCTestCase {
         XCTAssertEqual(solution.hIndex([5,6]), 2)
         XCTAssertEqual(solution.hIndex([1,2,3,4,5]), 3)
         XCTAssertEqual(solution.hIndex([0]), 0)
+        XCTAssertEqual(solution.hIndex([3,0,4,1,2]), 2)
     }
 }
 
