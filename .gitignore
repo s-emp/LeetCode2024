@@ -90,3 +90,4 @@ fastlane/test_output
 iOSInjectionProject/
 /LeetCode2024/.swiftpm/xcode/package.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
 .DS_Store
+/LeetCode2024/Sources/LeetCode2024/Note.md
