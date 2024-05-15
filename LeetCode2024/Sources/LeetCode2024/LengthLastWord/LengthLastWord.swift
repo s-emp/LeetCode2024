@@ -2,6 +2,15 @@
 
 final class LengthLastWord {
     func lengthOfLastWord(_ s: String) -> Int {
-        s.split(separator: " ").last?.count ?? 0
+        var currentResult = 0
+        for c in s.reversed() {
+            if c == " " {
+                guard currentResult != 0 else { continue }
+                return currentResult
+            } else {
+                currentResult += 1
+            }
+        }
+        return currentResult
     }
 }

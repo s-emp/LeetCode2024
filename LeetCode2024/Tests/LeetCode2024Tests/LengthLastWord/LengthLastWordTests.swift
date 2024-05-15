@@ -11,6 +11,8 @@ final class LengthLastWordTests: XCTestCase {
     func testLengthOfLastWord() {
         XCTAssertEqual(solution.lengthOfLastWord("Hello world"), 5)
         XCTAssertEqual(solution.lengthOfLastWord("Hello a"), 1)
+        XCTAssertEqual(solution.lengthOfLastWord("Hello"), 5)
+        XCTAssertEqual(solution.lengthOfLastWord("   fly me   to   the moon  "), 4)
     }
 }
 
