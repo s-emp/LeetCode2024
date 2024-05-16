@@ -12,7 +12,7 @@ final class ReverseWordsInStringTests: XCTestCase {
         XCTAssertEqual(solution.reverseWords("Hello world"), "world Hello")
         XCTAssertEqual(solution.reverseWords("  Hello world  "), "world Hello")
         XCTAssertEqual(solution.reverseWords("  Hello  world  "), "world Hello")
-        XCTAssertEqual(solution.reverseWords("  hi gay and  world  "), "world and gay hi")
+        XCTAssertEqual(solution.reverseWords("a  hi gay and  world  "), "world and gay hi a")
     }
 }
 
