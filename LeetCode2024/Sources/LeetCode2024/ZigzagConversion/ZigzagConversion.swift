@@ -5,7 +5,6 @@ final class ZigzagConversion {
         var result = Array(repeating: String(), count: numRows)
         var isLine = true
         for (index, character) in s.enumerated() {
-            let 
             if index % numRows == 0 {
                 isLine.toggle()
                 
