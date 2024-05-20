@@ -10,8 +10,8 @@ final class FirstIndexStrInStrTests: XCTestCase {
     }
     
     func testStrStr() {
-//        XCTAssertEqual(solution.strStr("leetcode", "leetee"), -1)
-//        XCTAssertEqual(solution.strStr("sadbutsad", "sad"), 0)
+        XCTAssertEqual(solution.strStr("leetcode", "leetee"), -1)
+        XCTAssertEqual(solution.strStr("sadbutsad", "sad"), 0)
         XCTAssertEqual(solution.strStr("eeeeel", "eeel"), 2)
     }
 }
