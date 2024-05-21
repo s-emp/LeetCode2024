@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/is-subsequence/description/?envType=study-plan-v2&envId=top-interview-150
+
 final class IsSubsequence {
     func isSubsequence(_ s: String, _ t: String) -> Bool {
         guard s.count > 0 else { return true }
