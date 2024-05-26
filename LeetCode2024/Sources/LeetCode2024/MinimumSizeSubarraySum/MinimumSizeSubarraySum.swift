@@ -1,15 +1,18 @@
 // https://leetcode.com/problems/minimum-size-subarray-sum/description/?envType=study-plan-v2&envId=top-interview-150
 
-final class MinimumSizeSubarraySumCustom {
+final class MinimumSizeSubarraySum {
     func minSubArrayLen(_ target: Int, _ nums: [Int]) -> Int {
-        let nums = nums.sorted(by: <).reversed()
-        var count = 0
-        var currentSum = 0
-        for num in nums {
-            currentSum += num
-            count += 1
-            if currentSum >= target { return count }
+        var last = 0
+        var sum = 0
+        var result = Int.max
+        for (index, num) in nums.enumerated() {
+            sum += num
+            while sum >= target {
+                result = min(result, index - last + 1)
+                sum -= nums[last]
+                last += 1
+            }
         }
-        return 0
+        return result == Int.max ? 0 : result
     }
 }
