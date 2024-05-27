@@ -1,7 +1,6 @@
 // https://leetcode.com/problems/longest-substring-without-repeating-characters/?envType=study-plan-v2&envId=top-interview-150
 
 final class LongestSubstring {
-    @_optimize(speed)
     func lengthOfLongestSubstring(_ s: String) -> Int {
         // Мы идем окном, где lastIndex это левая граница, а currentIndex - правая граница. Когда доходим до найденного, ставим левую на следующий за найденным, потому что это и есть реальная новая левая граница
         guard !s.isEmpty else { return 0 }
